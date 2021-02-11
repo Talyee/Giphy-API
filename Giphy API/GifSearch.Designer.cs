@@ -29,61 +29,61 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GifSearchForm));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DisplayGifBox = new System.Windows.Forms.PictureBox();
+            this.TextLabel = new System.Windows.Forms.Label();
+            this.InputTextBox = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.GiphyAttribute = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayGifBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GiphyAttribute)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // DisplayGifBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(50, 60);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 300);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
+            this.DisplayGifBox.BackColor = System.Drawing.SystemColors.Desktop;
+            this.DisplayGifBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("DisplayGifBox.ErrorImage")));
+            this.DisplayGifBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("DisplayGifBox.InitialImage")));
+            this.DisplayGifBox.Location = new System.Drawing.Point(50, 60);
+            this.DisplayGifBox.Name = "DisplayGifBox";
+            this.DisplayGifBox.Size = new System.Drawing.Size(400, 300);
+            this.DisplayGifBox.TabIndex = 0;
+            this.DisplayGifBox.TabStop = false;
+            this.DisplayGifBox.UseWaitCursor = true;
             // 
-            // label1
+            // TextLabel
             // 
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(484, 57);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Please enter your keyword";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.UseMnemonic = false;
+            this.TextLabel.BackColor = System.Drawing.Color.Black;
+            this.TextLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TextLabel.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.TextLabel.Location = new System.Drawing.Point(0, 0);
+            this.TextLabel.Name = "TextLabel";
+            this.TextLabel.Size = new System.Drawing.Size(484, 57);
+            this.TextLabel.TabIndex = 1;
+            this.TextLabel.Text = "Please enter your keyword";
+            this.TextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TextLabel.UseMnemonic = false;
             // 
-            // textBox1
+            // InputTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.InputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(50, 400);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.InputTextBox.Location = new System.Drawing.Point(50, 400);
+            this.InputTextBox.Name = "InputTextBox";
+            this.InputTextBox.Size = new System.Drawing.Size(228, 20);
+            this.InputTextBox.TabIndex = 2;
+            this.InputTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
-            // button1
+            // SearchButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(294, 398);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchButton.Location = new System.Drawing.Point(294, 398);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.TabIndex = 3;
+            this.SearchButton.Text = "search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // GiphyAttribute
             // 
@@ -103,16 +103,16 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.GiphyAttribute);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.InputTextBox);
+            this.Controls.Add(this.TextLabel);
+            this.Controls.Add(this.DisplayGifBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GifSearchForm";
             this.Text = "Giphy Search";
             this.Load += new System.EventHandler(this.GifSearchForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayGifBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GiphyAttribute)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,10 +121,10 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox DisplayGifBox;
+        private System.Windows.Forms.Label TextLabel;
+        private System.Windows.Forms.TextBox InputTextBox;
+        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.PictureBox GiphyAttribute;
     }
 }

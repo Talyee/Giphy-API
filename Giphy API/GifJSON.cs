@@ -24,6 +24,7 @@ namespace Giphy_API
         public string width { get; set; }
         public string height { get; set; }
 
+        //yeah it's pretty hardcoded shh
         public original()
         {
             url = "error.png";

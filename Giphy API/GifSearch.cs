@@ -20,45 +20,52 @@ namespace Giphy_API
             InitializeComponent();
         }
 
+        //display opening picture
         private void GifSearchForm_Load(object sender, EventArgs e)
         {
-            pictureBox1.LoadAsync("intro.png");
+            DisplayGifBox.LoadAsync("intro.png");
         }
 
+        //search button query input
         private void button1_Click(object sender, EventArgs e)
         {
             QuerySearch();
         }
 
+        //enter query input
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue.Equals(13))
             {
                 QuerySearch();
+                e.SuppressKeyPress = true; //stops the windows ding
             }
         }
 
+        //framework for getting gif info and displaying it
         private async void QuerySearch()
         {
-            pictureBox1.LoadAsync("loading.png");
-            string query = textBox1.Text;
+            string query = InputTextBox.Text;
             Task<original> gifInfoTask = SearchGif(query);
-            textBox1.Clear();
+            DisplayGifBox.LoadAsync("loading.png");
+            InputTextBox.Clear();
             original gifInfo = await gifInfoTask;
             int gifWidth = int.Parse(gifInfo.width);
             int gifHeight = int.Parse(gifInfo.height);
             FormResize(gifWidth, gifHeight);
-            pictureBox1.LoadAsync(gifInfo.url);
+            DisplayGifBox.LoadAsync(gifInfo.url);
         }
 
+        //resizes form based on new gif
         private void FormResize(int gifWidth, int gifHeight)
         {
-            pictureBox1.Width = gifWidth;
-            pictureBox1.Height = gifHeight;
+            DisplayGifBox.Width = gifWidth;
+            DisplayGifBox.Height = gifHeight;
             ActiveForm.Width = gifWidth + 100;
             ActiveForm.Height = gifHeight + 200;
         }
 
+        //the API stuff
         private static async Task<original> SearchGif(string search)
         {
             original gifInfo;
