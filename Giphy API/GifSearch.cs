@@ -21,39 +21,51 @@ namespace Giphy_API
 
         private void button1_Click(object sender, EventArgs e)
         {
-            querySearch();
+            QuerySearch();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue.Equals(13))
             {
-                querySearch();
+                QuerySearch();
             }
         }
 
-        private async void querySearch()
+        private async void QuerySearch()
         {
-            string gifUrl;
+            original gifInfo;
 
             try
             {
                 string query = textBox1.Text;
-                gifUrl = await searchGif(query);
+                gifInfo = await SearchGif(query);
             }
-            catch
+            catch 
             {
-                gifUrl = "error.png";
+                gifInfo = new original();
             }
+            int gifWidth = int.Parse(gifInfo.width);
+            int gifHeight = int.Parse(gifInfo.height);
 
             textBox1.Clear();
-            //pictureBox1.Width = 
-            pictureBox1.LoadAsync(gifUrl);
+            FormResize(gifWidth, gifHeight);
+            pictureBox1.Load(gifInfo.url);
         }
 
-        private static async Task<string> searchGif(string search)
+        private void FormResize(int gifWidth, int gifHeight)
         {
-            original gif;
+            pictureBox1.Width = gifWidth;
+            pictureBox1.Height = gifHeight;
+            ActiveForm.Width = gifWidth + 100;
+            ActiveForm.Height = gifHeight + 100;
+            //textBox1.Location.X = ActiveForm
+            //textBox1.AutoScrollOffset;
+        }
+
+        private static async Task<original> SearchGif(string search)
+        {
+            original gifInfo;
 
             Url url = "https://api.giphy.com/v1/gifs/search"
                 .SetQueryParams(new
@@ -64,31 +76,13 @@ namespace Giphy_API
             GiphyObj giphyObj = await url.GetJsonAsync<GiphyObj>();
             if (giphyObj.data.Length > 0)
             {
-                gif = giphyObj.data[0].images.original;
+                gifInfo = giphyObj.data[0].images.original;
             }
             else
             {
-                gif = "error.png";
+                gifInfo = new original();
             }
-            return urlPicture;
+            return gifInfo;
         }
-    }
-    class GiphyObj
-    {
-        public Gif[] data { get; set; }
-    }
-    class Gif
-    {
-        public Image images { get; set; }
-    }
-    class Image
-    {
-        public original original { get; set; }
-    }
-    class original
-    {
-        public string url { get; set; } // = "error.png";
-        public string width { get; set; }// = "200";
-        public string height { get; set; }// = "200";
     }
 }
