@@ -12,9 +12,9 @@ using Flurl.Http;
 
 namespace Giphy_API
 {
-    public partial class GifSearch : Form
+    public partial class GifSearchForm : Form
     {
-        public GifSearch()
+        public GifSearchForm()
         {
             InitializeComponent();
         }
@@ -34,23 +34,15 @@ namespace Giphy_API
 
         private async void QuerySearch()
         {
-            original gifInfo;
-
-            try
-            {
-                string query = textBox1.Text;
-                gifInfo = await SearchGif(query);
-            }
-            catch 
-            {
-                gifInfo = new original();
-            }
+            pictureBox1.LoadAsync("loading.png");
+            string query = textBox1.Text;
+            Task<original> gifInfoTask = SearchGif(query);
+            textBox1.Clear();
+            original gifInfo = await gifInfoTask;
             int gifWidth = int.Parse(gifInfo.width);
             int gifHeight = int.Parse(gifInfo.height);
-
-            textBox1.Clear();
             FormResize(gifWidth, gifHeight);
-            pictureBox1.Load(gifInfo.url);
+            pictureBox1.LoadAsync(gifInfo.url);
         }
 
         private void FormResize(int gifWidth, int gifHeight)
@@ -58,9 +50,7 @@ namespace Giphy_API
             pictureBox1.Width = gifWidth;
             pictureBox1.Height = gifHeight;
             ActiveForm.Width = gifWidth + 100;
-            ActiveForm.Height = gifHeight + 100;
-            //textBox1.Location.X = ActiveForm
-            //textBox1.AutoScrollOffset;
+            ActiveForm.Height = gifHeight + 200;
         }
 
         private static async Task<original> SearchGif(string search)
@@ -83,6 +73,11 @@ namespace Giphy_API
                 gifInfo = new original();
             }
             return gifInfo;
+        }
+
+        private void GifSearchForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

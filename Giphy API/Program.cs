@@ -16,7 +16,7 @@ namespace Giphy_API
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GifSearch());
+            Application.Run(new GifSearchForm());
         }
     }
 }
