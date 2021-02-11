@@ -27,7 +27,7 @@ namespace Giphy_API
         public original()
         {
             url = "error.png";
-            width = "300";
+            width = "400";
             height = "300";
         }
     }

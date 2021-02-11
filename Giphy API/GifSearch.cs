@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Flurl;
@@ -17,6 +18,11 @@ namespace Giphy_API
         public GifSearchForm()
         {
             InitializeComponent();
+        }
+
+        private void GifSearchForm_Load(object sender, EventArgs e)
+        {
+            pictureBox1.LoadAsync("intro.png");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,11 +79,6 @@ namespace Giphy_API
                 gifInfo = new original();
             }
             return gifInfo;
-        }
-
-        private void GifSearchForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
