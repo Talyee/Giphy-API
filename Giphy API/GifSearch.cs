@@ -15,15 +15,12 @@ namespace Giphy_API
 {
     public partial class GifSearchForm : Form
     {
+        public string loadingText = "Loading...";
+        public string errorText = "Could not locate a gif :(";
+
         public GifSearchForm()
         {
             InitializeComponent();
-        }
-
-        //display opening picture
-        private void GifSearchForm_Load(object sender, EventArgs e)
-        {
-            DisplayGifBox.LoadAsync("intro.png");
         }
 
         //search button query input
@@ -45,15 +42,21 @@ namespace Giphy_API
         //framework for getting gif info and displaying it
         private async void QuerySearch()
         {
+            DisplayGifBox.Hide();
+            TextLabel.Show();
+
             string query = InputTextBox.Text;
             Task<original> gifInfoTask = SearchGif(query);
-            DisplayGifBox.LoadAsync("loading.png");
+            TextLabel.Text = loadingText;
             InputTextBox.Clear();
             original gifInfo = await gifInfoTask;
             int gifWidth = int.Parse(gifInfo.width);
             int gifHeight = int.Parse(gifInfo.height);
             FormResize(gifWidth, gifHeight);
             DisplayGifBox.LoadAsync(gifInfo.url);
+
+            TextLabel.Hide();
+            DisplayGifBox.Show();
         }
 
         //resizes form based on new gif
@@ -61,12 +64,14 @@ namespace Giphy_API
         {
             DisplayGifBox.Width = gifWidth;
             DisplayGifBox.Height = gifHeight;
+            TextLabel.Width = gifWidth;
+            TextLabel.Height = gifHeight;
             ActiveForm.Width = gifWidth + 100;
             ActiveForm.Height = gifHeight + 200;
         }
 
         //the API stuff
-        private static async Task<original> SearchGif(string search)
+        private async Task<original> SearchGif(string search)
         {
             original gifInfo;
 
@@ -84,6 +89,7 @@ namespace Giphy_API
             else
             {
                 gifInfo = new original();
+                TextLabel.Text = errorText;
             }
             return gifInfo;
         }

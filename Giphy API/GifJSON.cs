@@ -24,10 +24,9 @@ namespace Giphy_API
         public string width { get; set; }
         public string height { get; set; }
 
-        //yeah it's pretty hardcoded shh
         public original()
         {
-            url = "error.png";
+            url = "err_no_data_found";
             width = "400";
             height = "300";
         }
